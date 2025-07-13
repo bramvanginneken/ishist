@@ -31,11 +31,15 @@
     const typewriter = document.getElementById('typewriter');
     let i = 0;
 
+    function getRandomDelay(min, max) {
+      return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+
     function type() {
       if (i < text.length) {
         typewriter.textContent += text.charAt(i);
         i++;
-        setTimeout(type, 150); // typing speed in ms
+        setTimeout(type, getRandomDelay(50,3000); // typing speed in ms
       } else {
         // Stop blinking cursor
         typewriter.style.borderRight = 'none';
