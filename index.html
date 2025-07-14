@@ -8,18 +8,12 @@
       background-color: #fff;
       font-family: 'Courier New', Courier, monospace;
       font-size: 1.5em;
-      padding: 2em;
+      padding: 1em;
       color: #000;
     }
 
     #typewriter {
       white-space: pre-wrap;
-      border-right: 0.1em solid;
-      animation: blink-caret 0.75s step-end infinite;
-    }
-
-    @keyframes blink-caret {
-      50% { border-color: transparent; }
     }
   </style>
 </head>
@@ -31,18 +25,15 @@
     const typewriter = document.getElementById('typewriter');
     let i = 0;
 
-    function getRandomDelay(min, max) {
-      return Math.floor((Math.random() ** 20)* (max - min + 1)) + min;
+    function delay(min, max) {
+      return Math.floor((Math.random() ** 20) * (max - min + 1)) + min;
     }
 
     function type() {
       if (i < text.length) {
         typewriter.textContent += text.charAt(i);
         i++;
-        setTimeout(type, getRandomDelay(20,1200)); // typing speed in ms
-      } else {
-        // Stop blinking cursor
-        typewriter.style.borderRight = 'none';
+        setTimeout(type, delay(20, 1200)); // typing speed in ms
       }
     }
 
